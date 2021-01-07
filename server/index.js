@@ -17,6 +17,11 @@ app.use(bodyParser.json({limit: "30mb", extended: true}))
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}))
 app.use(cors())
 
+// App Middlewares
+app.use('/posts', postRoutes)
+app.get('/', (req, res)=> {
+    res.send('Hello to Memos App')
+})
 
 // Connecting to db
 
@@ -31,8 +36,6 @@ mongoose.set('useFindAndModify', false);
 
 
 
-// App Middlewares
-app.use('/posts', postRoutes)
 
 
 
